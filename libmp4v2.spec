@@ -6,6 +6,7 @@ License:    MPLv1.1
 URL:        http://code.google.com/p/mp4v2
 
 Source0:    http://mp4v2.googlecode.com/files/mp4v2-%{version}.tar.bz2
+Patch0:     %{name}-2.0.0-gcc7.patch
 
 %description
 The libmp4v2 library provides an abstraction layer for working with files using
@@ -21,7 +22,7 @@ Development files and documentation needed to develop and compile programs using
 the libmp4v2 library.
 
 %prep
-%setup -q -n mp4v2-%{version}
+%autosetup -p0 -n mp4v2-%{version}
 
 %build
 %configure \
@@ -52,6 +53,7 @@ find %{buildroot} -name '*.la' -delete
 %changelog
 * Tue Oct 24 2017 Simone Caronni <negativo17@gmail.com> - 2.0.0-3
 - Clean up SPEC file.
+- Fix GCC 7 build.
 
 * Sat Jan 10 2015 Rex Dieter <rdieter@fedoraproject.org> - 2.0.0-2
 - track library soname, so bumps aren't a surprise
